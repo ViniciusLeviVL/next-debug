@@ -4,8 +4,10 @@ import { Carousel as FancyCarousel, Panzoom } from "@fancyapps/ui/"
 import "@fancyapps/ui/dist/carousel/carousel.css"
 import "@fancyapps/ui/dist/panzoom/panzoom.css"
 import "./carousel.css"
+import { useCarouselContext } from "@/app/[...magazine]/context/carouselApiContext"
 import { ReactNode, useEffect, useRef, useState } from "react"
-import { cn } from "@/lib/utils"
+import { useSearchParams } from "next/navigation"
+import { cn, isDesktopScreenSize } from "@/lib/utils"
 
 type CarouselProps = {
   children?: ReactNode[]
@@ -14,6 +16,11 @@ type CarouselProps = {
 export default function Carousel({ children }: CarouselProps) {
   const carouselRef = useRef<HTMLDivElement | null>(null)
   const [loading, setLoading] = useState(true)
+  const [setCarouselApi, setCurrentPage] = useCarouselContext((s) => [
+    s.setCarouselApi,
+    s.setCurrentPage
+  ])
+  const initialPage = parseInt(useSearchParams().get("page") || "1") - 1
 
   useEffect(() => {
     if (!carouselRef.current) return
@@ -21,9 +28,12 @@ export default function Carousel({ children }: CarouselProps) {
       infinite: false,
       transition: "crossfade",
       Dots: false,
+      initialPage: isDesktopScreenSize() ? initialPage / 2 : initialPage,
       preload: 3,
       on: {
-        ready: () => {
+        ready: (carousel: FancyCarousel) => {
+          setCarouselApi(carousel)
+          setCurrentPage(carousel.page + 1)
           setLoading(false)
         },
         initSlide: (_carousel: FancyCarousel, slide) => {
@@ -53,6 +63,7 @@ export default function Carousel({ children }: CarouselProps) {
           })
         },
         change: (carousel: FancyCarousel, to, from) => {
+          setCurrentPage(carousel.page + 1)
           // Apply animation for pins in view
           carousel.pages[to].slides.forEach((slide) => {
             slide?.el
@@ -77,7 +88,7 @@ export default function Carousel({ children }: CarouselProps) {
     return () => {
       carouselInstance.destroy()
     }
-  }, [carouselRef])
+  }, [setCarouselApi, carouselRef, initialPage, setCurrentPage])
 
   return (
     <div
