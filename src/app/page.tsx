@@ -1,14 +1,8 @@
 "use client"
 
-import { isRunningStandalone } from "@/lib/utils";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isStandalone, setIsStandalone] = useState<boolean | null>(null)
-  useEffect(()=> {
-    setIsStandalone(isRunningStandalone)
-  }, [])
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -24,9 +18,7 @@ export default function Home() {
           <li className="mb-2">
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              {isStandalone === true && "TRUE"}
-              {isStandalone === false && "FALSE"}
-              {isStandalone === null && "NULL"}
+              {JSON.stringify(Object.entries({teste: 1, testedenovo: "string", testeboolean: false}), null, 2)}
             </code>
             .
           </li>

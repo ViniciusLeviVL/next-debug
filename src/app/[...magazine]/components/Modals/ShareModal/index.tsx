@@ -16,6 +16,7 @@ import Link from "next/link"
 import { useCompany } from "@/app/[...magazine]/hooks/useCompany"
 import { copy } from "@/lib/utils"
 import { MailIcon } from "lucide-react"
+import { getMailURL, getWhatsappURL } from "@/lib/url"
 
 type ShareModalProps = {
   children: ReactNode
@@ -49,11 +50,10 @@ export default function ShareModal({ children }: ShareModalProps) {
           {company && (
             <>
               <Link
-                // href={getMailURL({
-                //   subject: `Confira os produtos da ${company.name}`,
-                //   body: `Olá, confira os produtos da ${company.name} nesse catálogo e envie os seus pedidos diretamente pelo Whatsapp!\n${location.href}`
-                // })}
-                href="google.com"
+                href={getMailURL({
+                  subject: `Confira os produtos da ${company.name}`,
+                  body: `Olá, confira os produtos da ${company.name} nesse catálogo e envie os seus pedidos diretamente pelo Whatsapp!\n${location.href}`
+                })}
                 target="_blank"
               >
                 <Button className="size-16 rounded-full bg-indigo-800 hover:bg-indigo-950">
@@ -62,10 +62,9 @@ export default function ShareModal({ children }: ShareModalProps) {
                 </Button>
               </Link>
               <Link
-                // href={getWhatsappURL({
-                //   text: `Olá, confira os produtos da ${company.name} nesse catálogo e envie os seus pedidos diretamente pelo Whatsapp!\n${location.href}`
-                // })}
-                href="google.com"
+                href={getWhatsappURL({
+                  text: `Olá, confira os produtos da ${company.name} nesse catálogo e envie os seus pedidos diretamente pelo Whatsapp!\n${location.href}`
+                })}
                 target="_blank"
               >
                 <Button className="size-16 rounded-full bg-green-600 hover:bg-green-700">
