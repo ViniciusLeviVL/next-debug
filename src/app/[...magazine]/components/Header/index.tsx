@@ -1,6 +1,5 @@
 import MenuTrigger from "./components/presentation/MenuTrigger"
 import ShareTrigger from "./components/presentation/ShareTrigger"
-import CartTrigger from "./components/presentation/CartTrigger"
 import HomeButton from "./components/presentation/HomeButton"
 import PageCounter from "./components/PageCounter"
 import BackButton from "./components/presentation/BackButton"
@@ -19,7 +18,7 @@ export default function Header() {
           <PageCounter />
         </section>
         <section className="flex items-center justify-end space-x-5">
-          <CartTrigger />
+          
         </section>
       </div>
     </header>
