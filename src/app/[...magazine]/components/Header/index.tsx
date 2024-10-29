@@ -1,4 +1,3 @@
-import MenuTrigger from "./components/presentation/MenuTrigger"
 import ShareTrigger from "./components/presentation/ShareTrigger"
 import HomeButton from "./components/presentation/HomeButton"
 import PageCounter from "./components/PageCounter"
@@ -10,7 +9,6 @@ export default function Header() {
       <div className="mx-3 mt-1 flex h-9 w-full max-w-7xl justify-between">
         <section className="flex items-center space-x-5">
           <BackButton />
-          <MenuTrigger />
           <ShareTrigger />
           <HomeButton />
         </section>
