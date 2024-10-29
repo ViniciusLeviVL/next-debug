@@ -1,6 +1,5 @@
 import MenuTrigger from "./components/presentation/MenuTrigger"
 import ShareTrigger from "./components/presentation/ShareTrigger"
-import SearchTrigger from "./components/presentation/SearchTrigger"
 import CartTrigger from "./components/presentation/CartTrigger"
 import HomeButton from "./components/presentation/HomeButton"
 import PageCounter from "./components/PageCounter"
@@ -14,7 +13,6 @@ export default function Header() {
           <BackButton />
           <MenuTrigger />
           <ShareTrigger />
-          <SearchTrigger />
           <HomeButton />
         </section>
         <section className="mx-auto hidden flex-grow justify-center space-x-5 3xs:flex">
