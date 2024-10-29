@@ -1,0 +1,55 @@
+.f-carousel {
+  --f-button-bg: #fff;
+  --f-carousel-theme-color: #fff;
+  --f-button-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%),
+    0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
+
+  --f-button-svg-width: 20px;
+  --f-button-svg-height: 20px;
+  --f-button-svg-stroke-width: 2.5;
+  --f-button-border-radius: 20%;
+
+  --f-carousel-spacing: 50dvw;
+  --f-carousel-slide-width: 100%;
+
+  position: static;
+}
+
+.f-carousel__nav .f-button.is-prev,
+.f-carousel__nav .f-button.is-next,
+.fancybox__nav .f-button.is-prev,
+.fancybox__nav .f-button.is-next {
+  z-index: 0;
+}
+
+.f-carousel__nav .f-button {
+  background-color: #2e5dea;
+}
+
+.f-carousel__nav .f-button:hover {
+  background-color: #2e5dea;
+  opacity: 0.8;
+}
+
+@media (min-width: 1024px) and (min-height: 768px) {
+  .f-carousel {
+    --f-carousel-spacing: 0;
+    --f-carousel-slide-width: calc(100% / 2);
+  }
+}
+
+@media screen and (max-width: 44rem) {
+  .f-carousel__nav .f-button.is-prev {
+    margin-left: -10px;
+  }
+
+  .f-carousel__nav .f-button.is-next {
+    margin-right: -10px;
+  }
+
+  .f-carousel__nav .f-button,
+  .f-carousel__nav .f-button:hover {
+    background-color: #000;
+    opacity: 0.4;
+  }
+}
