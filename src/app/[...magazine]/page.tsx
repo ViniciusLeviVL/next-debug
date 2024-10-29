@@ -1,11 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import { getCompany } from "@/entities/company"
-import { MagazinePageParams } from "./types"
-import { getCatalog } from "@/entities/catalog"
-import { notFound } from "next/navigation"
+import {
+  setCompanyId,
+  setCatalogName
+} from "@/app/[...magazine]/context/paramsContext"
+
 import Carousel from "./components/Carousel"
 import Zoom from "./components/Zoom"
-import { setCompanyId, setCatalogName } from "./context/paramsContext"
+
+import { getCatalog } from "@/entities/catalog"
+import { getCompany } from "@/entities/company"
+import { notFound } from "next/navigation"
+import { MagazinePageParams } from "./types"
 
 export default async function Main({
   params,
