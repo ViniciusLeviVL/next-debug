@@ -1,3 +1,6 @@
+import "core-js/actual/url"
+import "core-js/actual/url-search-params"
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
