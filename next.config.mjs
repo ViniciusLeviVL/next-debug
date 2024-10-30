@@ -7,8 +7,9 @@ const nextConfig = {
         hostname: process.env.NEXT_PUBLIC_CDN_BASE_URL.split("/").pop()
       }
     ],
-    deviceSizes: [640, 750, 1080, 1280]
+    deviceSizes: [640, 750, 1080, 1280],
   },
+  transpilePackages: ["core-js"]
 };
 
 export default nextConfig;
