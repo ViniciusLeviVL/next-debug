@@ -19,16 +19,13 @@ export default function Home() {
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               {JSON.stringify({
-                URL: new URL("/send", "https://api.whatsapp.com"),
-                SearchParams: new URLSearchParams({ 
-                  phone: "81998146998", 
-                  text: "Hello Whatsapp!" 
-                }),
-                WhatsappURL: new URL("/send", "https://api.whatsapp.com").search = new URLSearchParams({ 
-                  phone: "81998146998", 
-                  text: "Hello Whatsapp!" 
-                }).toString()
-                }, null, 2)}
+                entries: Object.entries({
+                  testeNumber: 1,
+                  testeString: "Hello, Next.js!",
+                  testeBoolean: true,
+                  testeArray: [1, 2, 3] 
+                })
+              }, null, 2)}
             </code>
             .
           </li>
