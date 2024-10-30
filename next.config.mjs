@@ -9,7 +9,6 @@ const nextConfig = {
     ],
     deviceSizes: [640, 750, 1080, 1280],
   },
-  transpilePackages: ["core-js"]
 };
 
 export default nextConfig;
