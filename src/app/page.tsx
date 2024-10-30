@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import { getMailURL, getWhatsappURL } from "@/lib/url"
 
 export default function Home() {
   return (
@@ -20,8 +19,15 @@ export default function Home() {
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               {JSON.stringify({
-                MailURL: getMailURL({ mails: "vinicius-levi-vl", body: "Hello Mail Body!", subject: "Hello Mail Subject!" }),
-                WhatsappURL: getWhatsappURL({ phone: "81998146998", text: "Hello Whatsapp!" })
+                URL: new URL("/send", "https://api.whatsapp.com"),
+                SearchParams: new URLSearchParams({ 
+                  phone: "81998146998", 
+                  text: "Hello Whatsapp!" 
+                }),
+                WhatsappURL: new URL("/send", "https://api.whatsapp.com").search = new URLSearchParams({ 
+                  phone: "81998146998", 
+                  text: "Hello Whatsapp!" 
+                }).toString()
                 }, null, 2)}
             </code>
             .
