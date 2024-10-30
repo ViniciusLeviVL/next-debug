@@ -1,5 +1,3 @@
-import "core-js/actual"
-
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
