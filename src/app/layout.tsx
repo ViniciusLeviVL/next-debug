@@ -1,9 +1,10 @@
-import 'core-js/stable'
+import "core-js/actual"
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
+import { PolyfillContext } from "@/context/polyfillContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,8 +32,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        <Toaster position="top-center" theme="light" />
+        <PolyfillContext>
+          {children}
+          <Toaster position="top-center" theme="light" />
+        </PolyfillContext>
       </body>
     </html>
   );
