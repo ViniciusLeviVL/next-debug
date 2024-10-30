@@ -1,4 +1,4 @@
-import "core-js/actual"
+import 'core-js/stable'
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
