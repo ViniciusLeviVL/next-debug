@@ -1,4 +1,4 @@
-import "core-js/stable/string/replace-all"
+import "core-js/modules/es.string.replace-all"
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
