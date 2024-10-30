@@ -19,12 +19,8 @@ export default function Home() {
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               {JSON.stringify({
-                entries: Object.entries({
-                  testeNumber: 1,
-                  testeString: "Hello, Next.js!",
-                  testeBoolean: true,
-                  testeArray: [1, 2, 3] 
-                })
+                text: "Hello World! Bye Bye World!",
+                textReplaced: "Hello World! Bye Bye World!".replaceAll("World", "Earth")
               }, null, 2)}
             </code>
             .
