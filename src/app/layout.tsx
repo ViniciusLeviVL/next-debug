@@ -1,5 +1,4 @@
-import "core-js/actual/url"
-import "core-js/actual/url-search-params"
+import "core-js/stable/string/replace-all"
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
